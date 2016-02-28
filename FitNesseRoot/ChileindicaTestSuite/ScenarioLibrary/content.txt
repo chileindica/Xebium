@@ -1,0 +1,31 @@
+In the Scenario library the logical steps in the test case can be translated to Xebium statements. Normally this means splitting up the test recorded with Selenium IDE.
+
+| scenario | Given a working fitnesse instance |
+| ensure | do | open | on | / |
+| ensure | do | waitForElementPresent | on | cboxClose |
+| ensure | do | pause | on | 3000 |
+| ensure | do | click | on | cboxClose |
+| ensure | do | pause | on | 3000 |
+| ensure | do | click | on | //a[@href="araucania/"] |
+
+| scenario | When I open the link to the template project |
+| ensure | do | sendKeys | on | name=e_usuario |with |calvarez|
+| ensure | do | sendKeys | on | name=e_clave |with |calvarez123|
+| ensure | do | click | on | b_acceso |
+
+!| scenario | Then the template directory structure is shown |
+| ensure | do | pause | on | 3000 |
+| ensure | do | clickAndWait | on | imenu1 |
+| ensure | do | clickAndWait | on | imenu1-4 |
+| ensure | do | captureEntirePageScreenshot | on | http://files/testResults/screenshots/${RUNNING_PAGE_NAME}/screenshotTest001.png |
+| ensure | do | selectFrame| on | mpagina |
+| ensure | do | select | on | id=cb_institucion | with | label=Admin Sistema de Concesiones Mop |
+| ensure | do | clickAndWait| on | b_nueva |
+| ensure | do | clickAndWait | on | link=2% Deporte |
+| ensure | do | captureEntirePageScreenshot | on | http://files/testResults/screenshots/${RUNNING_PAGE_NAME}/screenshotTest002.png |
+| ensure | do | type | on | !-xpath=(//input[@type='text'])[14]-! | with | 30408077 |
+| ensure | do | select | on | //td[2]/select | with | label=Ejecución |
+| ensure | do | select | on | //tr[3]/td[2]/select | with | label=2016 |
+| ensure | do | clickAndWait | on | css=button.btn.btn-primary |
+| check | is | assertAlert | Ya existe este proyecto en nuestros registros |
+| ensure | do | captureEntirePageScreenshot | on | http://files/testResults/screenshots/${RUNNING_PAGE_NAME}/screenshotTest003.png |
